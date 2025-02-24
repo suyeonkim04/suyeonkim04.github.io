@@ -1,0 +1,102 @@
+/* Word & Definition Box Containers */
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* 
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+  */
+
+.box {
+    background-color: #D9D9D9;
+    border: 1px solid #0e0e0e;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1 1 calc(50% - 20px);
+    margin-bottom: 20px;
+}
+
+/* Webpage Text Settings */
+
+body {
+    font-family: "Meno text", Times New Roman, serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    font-size: 80px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h4 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+p {
+    font-family: "Courier New", monospace;
+    line-height: 1.5;
+}
+
+li {
+    font-family: "Courier New", monospace;
+}
+
+/* Additional Elements Settings */
+
+.really {
+    opacity: 0.1;
+}
+
+/* Fixed Footer Settings */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+  
+  .nav-boxes {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .nav-boxes li {
+    background-color: #fff;
+    border: 1px solid #0e0e0e;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    flex: 1;
+    text-align: center;
+  }
+  
+  .nav-boxes li a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
