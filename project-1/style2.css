@@ -225,7 +225,6 @@ footer {
     }
   }
   
-  /* Ensure main content appears above the gradients */
   .content {
     position: relative;
     z-index: 1;
