@@ -43,7 +43,7 @@
 /* Webpage Text */
 
 body {
-    font-family: "Meno text", Times New Roman, serif;
+    font-family: meno-text, serif;
     margin: 0;
     padding: 20px;
     background-color: #f0f0f0;
