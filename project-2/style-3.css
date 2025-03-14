@@ -1,1 +1,50 @@
-/* Version 3: Ugly */
+/* ==========================
+   Reset & Base Styles */
+   body {
+    margin: 0;
+    background-color: white; 
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.poster-image {
+    display: none;
+}
+
+.ellipse-layout {
+    display: none;
+}
+
+/* Fullscreen Text Layout */
+.fullscreen-text {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: 1fr;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.fullscreen-text p {
+    font-family: "noka", sans-serif;
+    font-size: 80px;
+    font-weight: 800;
+    color: black;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-content {
+    display:none;
+}
+
+.ellipse-layout {
+    display:none;
+}
