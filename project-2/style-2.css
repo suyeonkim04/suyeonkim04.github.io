@@ -1,11 +1,12 @@
-/* Base Style */
+/* ==========================
+   Base Styles (unchanged)
+   ========================== */
    body {
     margin: 0;
-    background-color: #002FD2; 
-    overflow: hidden; 
+    background-color: #002FD2; /* Deep blue background */
+    overflow: hidden; /* Prevents scrolling */
 }
 
-/* Container */
 .ellipse-layout {
     position: relative;
     width: 100vw;
@@ -14,16 +15,14 @@
     flex-direction: column;
 }
 
-/* Ellipse Background */
 .ellipse-row-style2 {
     display: flex;
     width: 100vw;
-    height: 33.33vh;
+    height: 33.33vh; /* Each row takes up 1/3 of the viewport height */
 }
 
-/* Each ellipse touches the edges */
 .ellipse-style2 {
-    flex: 1;
+    flex: 1; /* Default equal width */
     height: 100%;
     border: 1px solid white;
     border-radius: 50%;
@@ -33,26 +32,82 @@
     overflow: hidden;
 }
 
-/* Hover Effect: Dynamic width shift */
-.ellipse-style2:hover {
+/* For the first row: */
+.ellipse-row-style2:nth-child(1) .ellipse-style2:first-child {
+    flex: 2; /* First ellipse is 2 units wide */
+}
+
+.ellipse-row-style2:nth-child(1) .ellipse-style2:last-child {
+    flex: 1; /* Second ellipse is 1 unit wide */
+}
+
+/* For the second row: */
+.ellipse-row-style2:nth-child(2) .ellipse-style2:first-child {
+    flex: 1; /* First ellipse has default width */
+}
+
+.ellipse-row-style2:nth-child(2) .ellipse-style2:last-child {
+    flex: 2; /* Second ellipse is twice as wide */
+}
+
+/* ==========================
+   Differentiated Hover Effects
+   ========================== */
+
+/* --- First Row Hover Effect (Row 1) --- */
+.ellipse-row-style2:nth-child(1) .ellipse-style2:hover {
+    flex: 0.4;
+}
+.ellipse-row-style2:nth-child(1) .ellipse-style2:hover + .ellipse-style2 {
+    flex: 1.6;
+}
+.ellipse-row-style2:nth-child(1) .ellipse-style2:first-child:hover {
+    flex: 1.6;
+}
+.ellipse-row-style2:nth-child(1) .ellipse-style2:first-child:hover + .ellipse-style2 {
     flex: 0.4;
 }
 
-.ellipse-style2:hover + .ellipse-style2 {
-    flex: 1.6;
+
+/* --- Second Row Hover Effect (Row 2) ---
+   In this example, the hovered ellipse expands rather than shrinks */
+.ellipse-row-style2:nth-child(2) .ellipse-style2:hover {
+    flex: 1.8;
+}
+.ellipse-row-style2:nth-child(2) .ellipse-style2:hover + .ellipse-style2 {
+    flex: 0.2;
+}
+.ellipse-row-style2:nth-child(2) .ellipse-style2:first-child:hover {
+    flex: 1.8;
+}
+.ellipse-row-style2:nth-child(2) .ellipse-style2:first-child:hover + .ellipse-style2 {
+    flex: 0.2;
 }
 
-/* Hover Effect: the second ellipse affects the first */
-.ellipse-style2:first-child:hover {
-    flex: 1.6;
+/* --- Third Row Hover Effect (Row 3) ---
+   A more moderate shifting effect */
+.ellipse-row-style2:nth-child(3) .ellipse-style2:hover {
+    flex: 0.7;
+}
+.ellipse-row-style2:nth-child(3) .ellipse-style2:hover + .ellipse-style2 {
+    flex: 1.3;
+}
+.ellipse-row-style2:nth-child(3) .ellipse-style2:first-child:hover {
+    flex: 1.3;
+}
+.ellipse-row-style2:nth-child(3) .ellipse-style2:first-child:hover + .ellipse-style2 {
+    flex: 0.7;
 }
 
-.ellipse-style2:first-child:hover + .ellipse-style2 {
-    flex: 0.4;
-}
-
-/* Text Clipping Path */
-.ellipse-text {
+/* ==========================
+   Text Clipping & Styling (unchanged)
+   ========================== */
+.ellipse-title,
+.ellipse-subtitle,
+.ellipse-time-location,
+.ellipse-description,
+.ellipse-address,
+.ellipse-ticket {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -67,32 +122,53 @@
     clip-path: ellipse(95% 90% at center);
 }
 
-/* Typography */
-.ellipse-text p {
+/* Typography Adjustments */
+.ellipse-title p {
+    font-size: 30vw;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.ellipse-subtitle p {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 5px 0;
+}
+
+.ellipse-time-location p {
     font-size: 20px;
     font-weight: 600;
     text-transform: uppercase;
-    margin: 0;
+    margin: 5px 0;
+}
+
+.ellipse-description p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    width: 85%;
+}
+
+.ellipse-address p {
+    font-size: 20px;
+    font-weight: 600;
     text-align: center;
+    line-height: 1.15;
 }
 
-.ellipse-text:first-child p {
-    font-size: 50px;
-    font-weight: 800;
+.ellipse-ticket p {
+    font-size: 18px;
+    font-weight: 600;
 }
 
-.fullscreen-text {
-    display: none;
+.ellipse-ticket a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    transition: color 0.3s;
 }
 
-.poster-image {
-    display: none;
+.ellipse-ticket a:hover {
+    color: #ff3399;
 }
-.info-box {
-    display: none;
-}
-
-.text-content {
-    display: none;
-}
-  

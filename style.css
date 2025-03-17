@@ -1,19 +1,108 @@
-h1 {
-    font-family: Helvetica Neue;
+/* General Styles */
+body {
+    font-family: Helvetica Neue, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
 }
 
-h2 {
-    font-family: Helvetica Neue;
+/* Flexbox container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+    max-width: 1400px; /* Increased max width for more space */
 }
 
-ul {
-    font-family: Helvetica Neue;
+/* Left Content (Text) */
+.left-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    min-width: 250px; /* Ensures it doesn't shrink too much */
 }
 
-p {
-    font-family: Helvetica Neue;
+.left-content h1 {
+    margin: 0;
 }
 
-a:hover {
-    color: #FF0000;
+/* Center Image */
+.center-image {
+    flex: 2; /* Allows image to take more space than text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 80vh; /* Makes image larger but prevents overflow */
+    object-fit: contain;
+}
+
+/* Right Content (Projects) */
+.right-projects {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 90vh; /* Uses viewport height to distribute links evenly */
+}
+
+.right-projects a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.right-projects a:hover {
+    color: gray;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1000px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .left-content, .right-projects {
+        align-items: center;
+        text-align: center;
+    }
+
+    .right-projects {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        height: auto;
+    }
+
+    .center-image {
+        flex: 1; /* Ensures balance when stacked */
+    }
+
+    .center-image img {
+        max-width: 90vw; /* Makes sure image remains big */
+        max-height: 60vh;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .right-projects {
+        flex-direction: column;
+        align-items: center;
+    }
 }
