@@ -207,6 +207,10 @@
     width: 30%;
 }
 
+.description-word {
+    color: #ff3399;
+}
+
 .ellipse-theme p {
     font-family: ivymode, sans-serif;
     font-size: 80px;
@@ -218,10 +222,11 @@
     font-family: noka, sans-serif;
     font-weight: 600;
     font-size: 80px;
+    color: #ff3399;
 }
 
 .ellipse-ticket p {
-    font-size: 18px;
+    font-size: 40px;
     font-weight: 600;
 }
 
