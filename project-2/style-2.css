@@ -3,8 +3,8 @@
    ========================== */
    body {
     margin: 0;
-    background-color: #002FD2; /* Deep blue background */
-    overflow: hidden; /* Prevents scrolling */
+    background-color: #002FD2;
+    overflow: hidden;
 }
 
 .ellipse-layout {
@@ -18,11 +18,11 @@
 .ellipse-row-style2 {
     display: flex;
     width: 100vw;
-    height: 33.33vh; /* Each row takes up 1/3 of the viewport height */
+    height: 33.33vh;
 }
 
 .ellipse-style2 {
-    flex: 1; /* Default equal width */
+    flex: 1;
     height: 100%;
     border: 1px solid white;
     border-radius: 50%;
@@ -32,21 +32,21 @@
     overflow: hidden;
 }
 
-/* For the first row: */
+/* First row */
 .ellipse-row-style2:nth-child(1) .ellipse-style2:first-child {
-    flex: 2; /* First ellipse is 2 units wide */
+    flex: 2;
 }
 
 .ellipse-row-style2:nth-child(1) .ellipse-style2:last-child {
     flex: 1; /* Second ellipse is 1 unit wide */
 }
 
-/* For the second row: */
-.ellipse-row-style2:nth-child(2) .ellipse-style2:first-child {
+/* Third row */
+.ellipse-row-style2:nth-child(3) .ellipse-style2:first-child {
     flex: 1; /* First ellipse has default width */
 }
 
-.ellipse-row-style2:nth-child(2) .ellipse-style2:last-child {
+.ellipse-row-style2:nth-child(3) .ellipse-style2:last-child {
     flex: 2; /* Second ellipse is twice as wide */
 }
 
@@ -56,10 +56,10 @@
 
 /* --- First Row Hover Effect (Row 1) --- */
 .ellipse-row-style2:nth-child(1) .ellipse-style2:hover {
-    flex: 0.4;
+    flex: 1.6;
 }
 .ellipse-row-style2:nth-child(1) .ellipse-style2:hover + .ellipse-style2 {
-    flex: 1.6;
+    flex: 0.4;
 }
 .ellipse-row-style2:nth-child(1) .ellipse-style2:first-child:hover {
     flex: 1.6;
@@ -69,8 +69,7 @@
 }
 
 
-/* --- Second Row Hover Effect (Row 2) ---
-   In this example, the hovered ellipse expands rather than shrinks */
+/* --- Second Row Hover Effect (Row 2) --- */
 .ellipse-row-style2:nth-child(2) .ellipse-style2:hover {
     flex: 1.8;
 }
@@ -84,19 +83,18 @@
     flex: 0.2;
 }
 
-/* --- Third Row Hover Effect (Row 3) ---
-   A more moderate shifting effect */
+/* --- Third Row Hover Effect (Row 3) --- */
 .ellipse-row-style2:nth-child(3) .ellipse-style2:hover {
-    flex: 0.7;
+    flex: 1.5;
 }
 .ellipse-row-style2:nth-child(3) .ellipse-style2:hover + .ellipse-style2 {
-    flex: 1.3;
+    flex: 0.5;
 }
 .ellipse-row-style2:nth-child(3) .ellipse-style2:first-child:hover {
-    flex: 1.3;
+    flex: 1.5;
 }
 .ellipse-row-style2:nth-child(3) .ellipse-style2:first-child:hover + .ellipse-style2 {
-    flex: 0.7;
+    flex: 0.5;
 }
 
 /* ==========================
@@ -106,7 +104,7 @@
 .ellipse-subtitle,
 .ellipse-time-location,
 .ellipse-description,
-.ellipse-address,
+.ellipse-theme,
 .ellipse-ticket {
     position: absolute;
     width: 100%;
@@ -122,39 +120,104 @@
     clip-path: ellipse(95% 90% at center);
 }
 
-/* Typography Adjustments */
+/* Title */
 .ellipse-title p {
-    font-size: 30vw;
-    font-weight: 800;
+    font-family: "ivymode", sans-serif;
+    font-style: italic;
+    font-size: 20vw;
+    font-weight: 600;
     text-transform: uppercase;
     margin: 0;
+    position: relative;
+    transition: none;
+}
+
+/* Create a pseudo-element that will hold the alternate text ("2025") */
+.ellipse-title p::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    opacity: 0;
+    transition: none;
+}
+
+/* On hover, hide the original text and show the pseudo-element with "2025" */
+.ellipse-title p:hover {
+    color: transparent;
+}
+
+.ellipse-title p:hover::after {
+    content: "2025";
+    opacity: 1;
 }
 
 .ellipse-subtitle p {
-    font-size: 30px;
+    font-size: 50px;
     font-weight: 700;
-    margin: 5px 0;
+    margin: 10px 0;
+    line-height: 1.15;
 }
 
 .ellipse-time-location p {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 40px;
+    font-weight: 500;
     text-transform: uppercase;
     margin: 5px 0;
 }
 
-.ellipse-description p {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.5;
-    width: 85%;
+/* Ensure the ellipse-time-location container is positioned relative */
+.ellipse-time-location {
+    position: absolute;
 }
 
-.ellipse-address p {
-    font-size: 20px;
-    font-weight: 600;
+/* Create a pseudo-element that holds the extra address text */
+.ellipse-time-location::after {
+    content: "The Westin Bonaventure Hotel & Suites. 404 S Figueroa St, Los Angeles, CA 90071";
+    display: block;
+    font-family: ivymode, sans-serif;
+    text-transform: uppercase;
+    font-style: italic;
+    font-size: 40px;           /* Adjust font size as needed */
+    font-weight: 300;          /* Match your desired weight */
+    color: #ff3399;
     text-align: center;
+    margin-top: 2px;           /* Space between original text and extra text */
+    opacity: 0;                /* Hidden by default */
+    transition: opacity 0.0s;   /* No transition effect; change appears immediately */
+}
+
+/* On hover, show the pseudo-element */
+.ellipse-time-location:hover::after {
+    opacity: 1;
+}
+
+
+.ellipse-description p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    width: 30%;
+}
+
+.ellipse-theme p {
+    font-family: ivymode, sans-serif;
+    font-size: 80px;
+    font-weight: 500;
     line-height: 1.15;
+}
+
+.plus-sign {
+    font-family: noka, sans-serif;
+    font-weight: 600;
+    font-size: 80px;
 }
 
 .ellipse-ticket p {
