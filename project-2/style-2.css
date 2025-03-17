@@ -148,6 +148,7 @@
 
 .ellipse-title p:hover::after {
     content: "2025";
+    color: #ff3399;
     opacity: 1;
 }
 
