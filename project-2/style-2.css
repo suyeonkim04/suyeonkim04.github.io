@@ -1,6 +1,4 @@
-/* ==========================
-   Base Styles (unchanged)
-   ========================== */
+/* Base Styles */
    body {
     margin: 0;
     background-color: #002FD2;
@@ -38,21 +36,19 @@
 }
 
 .ellipse-row-style2:nth-child(1) .ellipse-style2:last-child {
-    flex: 1; /* Second ellipse is 1 unit wide */
+    flex: 1;
 }
 
 /* Third row */
 .ellipse-row-style2:nth-child(3) .ellipse-style2:first-child {
-    flex: 1; /* First ellipse has default width */
+    flex: 1; 
 }
 
 .ellipse-row-style2:nth-child(3) .ellipse-style2:last-child {
-    flex: 2; /* Second ellipse is twice as wide */
+    flex: 2; 
 }
 
-/* ==========================
-   Differentiated Hover Effects
-   ========================== */
+/* Differentiated Hover Effects */
 
 /* --- First Row Hover Effect (Row 1) --- */
 .ellipse-row-style2:nth-child(1) .ellipse-style2:hover {
@@ -97,9 +93,7 @@
     flex: 0.5;
 }
 
-/* ==========================
-   Text Clipping & Styling (unchanged)
-   ========================== */
+/* Text Clipping & Styling */
 .ellipse-title,
 .ellipse-subtitle,
 .ellipse-time-location,
@@ -132,7 +126,7 @@
     transition: none;
 }
 
-/* Create a pseudo-element that will hold the alternate text ("2025") */
+/* ("2025") */
 .ellipse-title p::after {
     content: "";
     position: absolute;
@@ -148,7 +142,6 @@
     transition: none;
 }
 
-/* On hover, hide the original text and show the pseudo-element with "2025" */
 .ellipse-title p:hover {
     color: transparent;
 }
@@ -172,37 +165,36 @@
     margin: 5px 0;
 }
 
-/* Ensure the ellipse-time-location container is positioned relative */
 .ellipse-time-location {
     position: absolute;
 }
 
-/* Create a pseudo-element that holds the extra address text */
+
 .ellipse-time-location::after {
     content: "The Westin Bonaventure Hotel & Suites. 404 S Figueroa St, Los Angeles, CA 90071";
     display: block;
     font-family: ivymode, sans-serif;
     text-transform: uppercase;
     font-style: italic;
-    font-size: 40px;           /* Adjust font size as needed */
-    font-weight: 300;          /* Match your desired weight */
+    font-size: 40px;           
+    font-weight: 300;          
     color: #ff3399;
     text-align: center;
-    margin-top: 2px;           /* Space between original text and extra text */
-    opacity: 0;                /* Hidden by default */
-    transition: opacity 0.0s;   /* No transition effect; change appears immediately */
+    margin-top: 2px;          
+    opacity: 0;                
+    transition: opacity 0.0s;  
 }
 
-/* On hover, show the pseudo-element */
+
 .ellipse-time-location:hover::after {
     opacity: 1;
 }
 
 
 .ellipse-description p {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 500;
-    line-height: 1.5;
+    line-height: 1.25;
     text-align: center;
     width: 30%;
 }
@@ -226,7 +218,7 @@
 }
 
 .ellipse-ticket p {
-    font-size: 40px;
+    font-size: 50px;
     font-weight: 600;
 }
 
