@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Communal E-Garden</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google fonts: DM Mono-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <h1>Welcome to the Communal E-Garden</h1>
+  <h1> Let's build your flower:</h1>
+
+
+<!-- flower petals -->
+  <section class="section">
+    <h2>Choose Petal Style:</h2>
+    <div id="petalOptions" class="options-row">
+        <canvas class="option-canvas" data-type="petal1" width="70" height="70"></canvas>
+        <canvas class="option-canvas" data-type="petal2" width="70" height="70"></canvas>
+    </div>
+  </section>
+
+  <!-- flower pistils -->
+<section class="section">
+    <h2>Choose Pistil Style:</h2>
+    <div id="pistilOptions" class="options-row">
+      <canvas class="option-canvas" data-type="pistil1" width="70" height="70"></canvas>
+      <canvas class="option-canvas" data-type="pistil2" width="70" height="70"></canvas>
+    </div>
+  </section>
+  
+  <!-- flower stems -->
+  <section class="section">
+    <h2>Choose Stem Style:</h2>
+    <div id="stemOptions" class="options-row">
+      <canvas class="option-canvas" data-type="stem1" width="70" height="70"></canvas>
+      <canvas class="option-canvas" data-type="stem2" width="70" height="70"></canvas>
+    </div>
+  </section>
+  
+  <!-- stem leaves -->
+  <section class="section">
+    <h2>Choose Stem Leaves:</h2>
+    <div id="leavesOptions" class="options-row">
+      <canvas class="option-canvas" data-type="leaves1" width="70" height="70"></canvas>
+      <canvas class="option-canvas" data-type="leaves2" width="70" height="70"></canvas>
+    </div>
+  </section>
+
+  <!-- preview  -->
+  <section class="section">
+    <h2>Preview Your Flower:</h2>
+    <canvas id="flowerCanvas" width="300" height="300"></canvas>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+/* 
+DM Mono settings
+  font-family: "DM Mono", monospace;
+  Light | font-weight: 300;
+  Regular | font-weight: 400;
+  Medium |  font-weight: 500;
+  Italic | font-style: italic;
+  Normal | font-style: normal'
+*/
+
+body {
+    font-family: "DM Mono", monospace;
+    font-weight: 300;
+    font-style: normal;
+    background: #f4fff2;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 10px;
+    color: #4d7c0f;
+  }
+  
+  .section {
+    margin: 20px 0;
+  }
+  
+  .options-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  
+  .option-canvas {
+    border: 2px solid transparent;
+    cursor: pointer;
+    background: #ffffff;
+    image-rendering: pixelated;
+  }
+  
+  .option-canvas.selected {
+    border-color: #4d7c0f;
+  }
+  
+  #flowerCanvas {
+    border: 2px solid #333;
+    image-rendering: pixelated;
+    background-color: #fff;
+  }
+  
