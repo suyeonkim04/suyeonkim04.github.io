@@ -26,7 +26,7 @@ const petals = {
     ]
   };
 
-// Draw pixels to a canvas context
+// draw pixel on canvas
 function drawPixel(ctx, x, y, color, size) {
   ctx.fillStyle = color;
   ctx.fillRect(x * size, y * size, size, size);
@@ -55,10 +55,10 @@ document.querySelectorAll("#petalOptions canvas").forEach(canvas => {
   const type = canvas.dataset.type;
   const ctx = canvas.getContext("2d");
 
-  // preview on selection display
+// preview on selection display
   drawFromGrid(ctx, petals[type], 0, 0, 10);
 
-  // selection interaction
+// selection interaction
   canvas.addEventListener("click", () => {
     selectedPetal = type;
     document.querySelectorAll("#petalOptions canvas").forEach(c => c.classList.remove("selected"));
