@@ -26,6 +26,24 @@ const petals = {
       ["#FF69B4", "#FF69B4", "#FF69B4", "#FF69B4", "#FF69B4", "#FF69B4", "#FF69B4"],
       ["#FF69B4", "#FF69B4", "#FF69B4", null, "#FF69B4", "#FF69B4", "#FF69B4"],
       ["#FF69B4", "#FF69B4", "#FF69B4", null, "#FF69B4", "#FF69B4", "#FF69B4"]
+    ],
+    petal3: [
+      [null, null, "#FA8072", "#FA8072", "#FA8072", null, null],
+      [null, "#FA8072", "#FFA07A", "#FFA07A", "#FFA07A", "#FA8072", null],
+      ["#FA8072", "#FFA07A", "#FFDAB9", "#FFDAB9", "#FFDAB9", "#FFA07A", "#FA8072"],
+      ["#FA8072", "#FFA07A", "#FFDAB9", "#FFE4B5", "#FFDAB9", "#FFA07A", "#FA8072"],
+      ["#FA8072", "#FFA07A", "#FFDAB9", "#FFDAB9", "#FFDAB9", "#FFA07A", "#FA8072"],
+      [null, "#FA8072", "#FFA07A", "#FFA07A", "#FFA07A", "#FA8072", null],
+      [null, null, "#FA8072", "#FA8072", "#FA8072", null, null]
+    ],
+    petal4: [
+      [null, "#8A2BE2", "#8A2BE2", null, "#8A2BE2", "#8A2BE2", null],
+      ["#8A2BE2", "#BA55D3", "#DA70D6", "#BA55D3", "#DA70D6", "#BA55D3", "#8A2BE2"],
+      ["#BA55D3", "#DA70D6", "#DDA0DD", "#DDA0DD", "#DDA0DD", "#DA70D6", "#BA55D3"],
+      [null, "#DA70D6", "#DDA0DD", "#EE82EE", "#DDA0DD", "#DA70D6", null],
+      [null, "#BA55D3", "#DA70D6", "#DDA0DD", "#DA70D6", "#BA55D3", null],
+      [null, null, "#8A2BE2", "#BA55D3", "#8A2BE2", null, null],
+      [null, null, null, "#8A2BE2", null, null, null]
     ]
   };
 
@@ -40,6 +58,16 @@ const pistils = {
     [null, null, "#8A2BE2", null, null],
     [null, "#8A2BE2", "#DA70D6", "#8A2BE2", null],
     [null, null, "#8A2BE2", null, null]
+  ],
+  pistil3: [
+    [null, "#90EE90", "#90EE90", "#90EE90", null],
+    ["#90EE90", "#32CD32", "#ADFF2F", "#32CD32", "#90EE90"],
+    [null, "#90EE90", "#ADFF2F", "#90EE90", null]
+  ],
+  pistil4: [
+    [null, "#FFDAB9", "#FFE4B5", "#FFDAB9", null],
+    ["#FFE4B5", "#FFFACD", "#FFFFE0", "#FFFACD", "#FFE4B5"],
+    [null, "#FFDAB9", "#FFE4B5", "#FFDAB9", null]
   ]
 };
 
@@ -58,6 +86,20 @@ const stems = {
     ["#006400"],
     ["#006400"],
     ["#006400"]
+  ],
+  stem3: [
+    ["#556B2F"],
+    ["#6B8E23"],
+    ["#6B8E23"],
+    ["#556B2F"],
+    ["#556B2F"]
+  ],
+  stem4: [
+    ["#2E8B57"],
+    ["#3CB371"],
+    ["#2E8B57"],
+    ["#3CB371"],
+    ["#2E8B57"]
   ]
 };
 
@@ -71,6 +113,16 @@ const leaves = {
   leaves2: [
     ["#006400", null, null, null, null],
     ["#006400", "#006400", "#006400", null, null]
+  ],
+  leaves3: [
+    ["#6B8E23", "#6B8E23", null, "#6B8E23", "#6B8E23"],
+    [null, "#556B2F", "#6B8E23", "#556B2F", null],
+    [null, null, "#6B8E23", null, null]
+  ],
+  leaves4: [
+    ["#90EE90", null, null, null, "#90EE90"],
+    ["#90EE90", "#ADFF2F", null, "#ADFF2F", "#90EE90"],
+    [null, "#90EE90", "#ADFF2F", "#90EE90", null]
   ]
 };
 
@@ -173,3 +225,34 @@ document.querySelectorAll("#leavesOptions canvas").forEach(canvas => {
   });
 });
 document.querySelector(`[data-type="${selectedLeaves}"]`).classList.add("selected");
+
+//button
+document.getElementById("plantButton").addEventListener("click", () => {
+  const flower = {
+    petal: selectedPetal,
+    pistil: selectedPistil,
+    stem: selectedStem,
+    leaves: selectedLeaves,
+    timestamp: Date.now()
+  };
+
+  localStorage.setItem("plantedFlower", JSON.stringify(flower));
+
+  window.location.href = "garden.html";
+});
+
+
+//firebase stuff
+const plantedFlowers = [];
+
+document.getElementById("plantButton").addEventListener("click", () => {
+  const flower = {
+    petal: selectedPetal,
+    pistil: selectedPistil,
+    stem: selectedStem,
+    leaves: selectedLeaves,
+    x,
+    y
+  };
+  plantedFlowers.push(flower);
+});

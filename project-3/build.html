@@ -16,6 +16,7 @@
   <h1>Welcome to the Communal E-Garden</h1>
   <h1> Let's build your flower:</h1>
 
+  <br>
 
 <!-- flower petals -->
   <section class="section">
@@ -23,6 +24,8 @@
     <div id="petalOptions" class="options-row">
         <canvas class="option-canvas" data-type="petal1" width="70" height="70"></canvas>
         <canvas class="option-canvas" data-type="petal2" width="70" height="70"></canvas>
+        <canvas class="option-canvas" data-type="petal3" width="70" height="70"></canvas>
+        <canvas class="option-canvas" data-type="petal4" width="70" height="70"></canvas>
     </div>
   </section>
 
@@ -32,6 +35,8 @@
     <div id="pistilOptions" class="options-row">
       <canvas class="option-canvas" data-type="pistil1" width="70" height="70"></canvas>
       <canvas class="option-canvas" data-type="pistil2" width="70" height="70"></canvas>
+      <canvas class="option-canvas" data-type="pistil3" width="70" height="70"></canvas>
+      <canvas class="option-canvas" data-type="pistil4" width="70" height="70"></canvas>
     </div>
   </section>
   
@@ -41,6 +46,8 @@
     <div id="stemOptions" class="options-row">
       <canvas class="option-canvas" data-type="stem1" width="70" height="70"></canvas>
       <canvas class="option-canvas" data-type="stem2" width="70" height="70"></canvas>
+      <canvas class="option-canvas" data-type="stem3" width="70" height="70"></canvas>
+      <canvas class="option-canvas" data-type="stem4" width="70" height="70"></canvas>
     </div>
   </section>
   
@@ -50,6 +57,8 @@
     <div id="leavesOptions" class="options-row">
       <canvas class="option-canvas" data-type="leaves1" width="70" height="70"></canvas>
       <canvas class="option-canvas" data-type="leaves2" width="70" height="70"></canvas>
+      <canvas class="option-canvas" data-type="leaves3" width="70" height="70"></canvas>
+      <canvas class="option-canvas" data-type="leaves4" width="70" height="70"></canvas>
     </div>
   </section>
 
@@ -59,6 +68,13 @@
     <canvas id="flowerCanvas" width="300" height="300"></canvas>
   </section>
 
-  <script src="script.js"></script>
+  <section class="section">
+    <h2>Ready to Plant?</h2>
+    <button id="plantButton">Plant It!</button>
+  </section>
+
+  <script src="build.js"></script>
+  <script type="module" src="build.js"></script>
+
 </body>
 </html>

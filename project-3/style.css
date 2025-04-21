@@ -10,6 +10,8 @@ DM Mono settings
 
 body {
     font-family: "DM Mono", monospace;
+    font-size: 14px;
+    line-height: 0.8;
     font-weight: 300;
     font-style: normal;
     background: #f4fff2;
@@ -50,3 +52,10 @@ body {
     background-color: #fff;
   }
   
+  #gardenCanvas {
+    border: 2px dashed #6b8e23;
+    background-color: #eaffea;
+    display: block;
+    margin: 20px auto;
+    image-rendering: pixelated;
+  }
