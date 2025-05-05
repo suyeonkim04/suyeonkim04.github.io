@@ -243,16 +243,16 @@ document.getElementById("plantButton").addEventListener("click", () => {
 
 
 //firebase stuff
-const plantedFlowers = [];
+// const plantedFlowers = [];
 
-document.getElementById("plantButton").addEventListener("click", () => {
-  const flower = {
-    petal: selectedPetal,
-    pistil: selectedPistil,
-    stem: selectedStem,
-    leaves: selectedLeaves,
-    x,
-    y
-  };
-  plantedFlowers.push(flower);
-});
+// document.getElementById("plantButton").addEventListener("click", () => {
+//   const flower = {
+//     petal: selectedPetal,
+//     pistil: selectedPistil,
+//     stem: selectedStem,
+//     leaves: selectedLeaves,
+//     x,
+//     y
+//   };
+//   plantedFlowers.push(flower);
+// });
