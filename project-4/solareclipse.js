@@ -33,30 +33,34 @@ async function checkEclipseVisibility(lat, lon) {
 
     console.log("Eclipse API Response:", data);
 
-    // Replace location text with user's input
-    const userCity = document.getElementById("locationInput").value.trim();
-    let description = data?.properties?.description || "Eclipse event";
-    description = description.replace("at this Location", `in ${userCity}`);
+    const description = data?.properties?.description;
+    const duration = data?.properties?.duration;
 
-    // Fallback duration
-    const duration = data?.properties?.duration || "unknown";
+    if (description && description !== "No Eclipse") {
+      // Determine eclipse type based on description
+      let type = "";
 
-    // Format date as "August 12, 2026"
-    const eclipseDateObj = new Date(date);
-    const formattedDate = eclipseDateObj.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    });
+      if (description.includes("Total")) {
+        type = "Total Solar Eclipse";
+      } else if (description.includes("Annular")) {
+        type = "Annular Solar Eclipse";
+      } else if (description.includes("Hybrid")) {
+        type = "Hybrid Solar Eclipse";
+      } else if (description.includes("Partial")) {
+        type = "Partial Solar Eclipse";
+      } else {
+        type = "Unclassified Eclipse";
+      }
 
-    // Final result text
-    const resultText = `✅ ${description} on ${formattedDate}. Duration: ${duration}`;
-    document.getElementById("visibility-result").textContent = resultText;
-
+      const resultText = `✅ You will see a ${type} on ${date}. Duration: ${duration}`;
+      document.getElementById("visibility-result").textContent = resultText;
+    } else {
+      document.getElementById("visibility-result").textContent =
+        `🚫 The eclipse is not visible at your location on ${date}.`;
+    }
   } catch (err) {
     console.error("Error fetching eclipse data:", err);
-    document.getElementById("visibility-result").textContent =
-      "⚠️ Error fetching eclipse data. Please try again.";
+    document.getElementById("visibility-result").textContent = "⚠️ Error fetching eclipse data. Please try agaub";
   }
 }
 
