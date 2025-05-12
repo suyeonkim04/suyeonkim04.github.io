@@ -34,7 +34,7 @@ async function checkEclipseVisibility(lat, lon) {
     console.log("Eclipse API Response:", data);
 
     const description = data?.properties?.description;
-    const duration = data?.properties?.duration;
+    const duration = data?.properties?.duration || "unknown";
 
     if (description && description !== "No Eclipse") {
       // Determine eclipse type based on description
@@ -52,7 +52,14 @@ async function checkEclipseVisibility(lat, lon) {
         type = "Unclassified Eclipse";
       }
 
-      const resultText = `✅ You will see a ${type} on ${date}. Duration: ${duration}`;
+      const eclipseDateObj = new Date(date);
+      const formattedDate = eclipseDateObj.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+      });
+
+      const resultText = `✅ You will see a ${type} on ${formattedDate}. Duration: ${duration}`;
       document.getElementById("visibility-result").textContent = resultText;
     } else {
       document.getElementById("visibility-result").textContent =
