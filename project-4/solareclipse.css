@@ -16,16 +16,21 @@ font-weight: 100 or 400 or 600 or 700;
 font-style: italic;
 */
 
-body {
-    font-family: area-normal, sans-serif;
-    font-weight: 400;
+@font-face {
+    font-family: 'Bauhaus Medium';
+    src: url('fonts/bauhaus-medium.woff2') format('woff2'),
+         url('fonts/bauhaus-medium.woff') format('woff');
+    font-weight: normal;
     font-style: normal;
-    font-size: 16px;
-
+  }
+body {
     margin: 0;
     height: 100vh;
     background-color: #12152B;
     font-family: 'ibm-plex-mono', monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,25 +39,33 @@ body {
     color: white;
   }
   
+  
+  /* background */
+  
   .eclipse-background {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background: radial-gradient(circle, #ffffff 0%, #12152B 60%, #12152B 100%);
+    background: radial-gradient(circle, #ffffff 10%, #12152B 60%, #12152B 100%);
     z-index: 0;
   }
   
   .eclipse-core {
     position: absolute;
-    width: 50vw;
-    height: 50vw;
-    background: radial-gradient(circle, #12152B, #161D50);
+    width: 55vw;
+    height: 55vw;
+    background: linear-gradient(to bottom right, #12152B, #161D50);
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
+
   }
+  
+  
+  /* countdown */
   
   .ui-wrapper {
     position: relative;
@@ -62,30 +75,58 @@ body {
   }
   
   .title {
-    font-size: 1rem;
-    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 3rem;
+    opacity: 0.56;
   }
   
   .countdown {
-    font-size: clamp(1.5rem, 8vw, 6rem);
-    font-weight: 400;
     display: flex;
-    justify-content: center;
-    gap: 0.8rem;
-    flex-wrap: wrap;
-    letter-spacing: 0.05em;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0.2rem;
+    flex-wrap: nowrap;
+    width: 90vw;
+    max-width: 1200px;
+    margin: 0 auto;
   }
   
-  #visibility-result {
-    margin-top: 1rem;
-    font-size: 0.9rem;
+  .count-segment {
+    text-align: center;
+    flex: 1;
   }
   
-  .search-container {
+  .count-number {
+    font-family: 'Bauhaus Medium', sans-serif;
+    font-size: clamp(5rem, 15vw, 20rem);
+    font-weight: normal;
+    line-height: 0.8;
+  }
+  
+  .count-segment span {
+    display: block;
+    font-size: clamp(0.5rem, 2vw, 1rem); /* keep label small and responsive */
+    margin-top: 0.5em;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+  }
+  
+  /* search bar */
+  
+  .search-wrapper {
     position: absolute;
     top: 2rem;
     left: 2rem;
     z-index: 3;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
   }
   
   #locationInput {
@@ -100,25 +141,11 @@ body {
   #locationInput::placeholder {
     color: rgba(255, 255, 255, 0.6);
   }
-
-  /* countdown styling */
-  .countdown {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    font-family: 'ibm-plex-mono', monospace;
-    flex-wrap: wrap;
-    align-items: flex-end;
+  
+  #visibility-result {
+    font-size: 0.8rem;
+    margin: 0;
+    color: white;
+    max-width: 200px;
   }
   
-  .count-segment {
-    text-align: center;
-    font-size: clamp(2rem, 8vw, 6rem);
-  }
-  
-  .count-segment span {
-    display: block;
-    font-size: 0.5em;
-    margin-top: 0.2em;
-    letter-spacing: 0.1em;
-  }

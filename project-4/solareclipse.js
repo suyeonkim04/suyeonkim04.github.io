@@ -93,12 +93,30 @@ function updateCountdown() {
   parts.push(`${days}days`, `${hours}hrs`, `${minutes}min`, `${seconds}sec`);
 
   document.getElementById("countdown").innerHTML = `
-  ${years > 0 ? `<div class="count-segment"><div>${years}</div><span>YEARS</span></div>` : ""}
-  <div class="count-segment"><div>${days}</div><span>DAYS</span></div>
-  <div class="count-segment"><div>${hours}</div><span>HRS</span></div>
-  <div class="count-segment"><div>${minutes}</div><span>MIN</span></div>
-  <div class="count-segment"><div>${seconds}</div><span>SEC</span></div>
+  ${years > 0 ? `
+    <div class="count-segment">
+      <div class="count-number">${years},</div>
+      <span>YEARS</span>
+    </div>` : ''
+  }
+  <div class="count-segment">
+    <div class="count-number">${days},</div>
+    <span>DAYS</span>
+  </div>
+  <div class="count-segment">
+    <div class="count-number">${hours},</div>
+    <span>HOURS</span>
+  </div>
+  <div class="count-segment">
+    <div class="count-number">${minutes},</div>
+    <span>MINUTES</span>
+  </div>
+  <div class="count-segment">
+    <div class="count-number">${seconds}</div>
+    <span>SECONDS</span>
+  </div>
 `;
+
 }
 
 setInterval(updateCountdown, 1000);

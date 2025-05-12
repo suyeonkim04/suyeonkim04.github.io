@@ -13,16 +13,19 @@
     <div class="eclipse-core"></div>
   </div>
 
-  <div class="ui-wrapper">
+  <div class="search-wrapper">
     <div class="search-container">
       <input id="locationInput" list="suggestions" placeholder="🔍 Location..." />
       <datalist id="suggestions"></datalist>
       <button onclick="handleSearch()">Check Eclipse</button>
+      <p id="visibility-result"></p>
     </div>
+  </div>
 
+
+  <div class="ui-wrapper">
     <div class="title">Your Next Solar Eclipse is in...</div>
     <div id="countdown" class="countdown"></div>
-    <p id="visibility-result"></p>
   </div>
 
   <script src="solareclipse.js"></script>
