@@ -10,11 +10,14 @@
 
 <body>
     <main class="container">
-      <p>Your next Solar Eclipse will look like...
+      <p>Your next Solar Eclipse will look like...</p>
       
-<input id="locationInput" type="text" placeholder="Enter a city" />
-<button onclick="handleSearch()">Check Eclipse</button>
-<p id="visibility-result"></p>
+        <!-- search button -->
+        <label for="locationInput">Enter a city name:</label>
+        <input id="locationInput" list="suggestions" placeholder="Start typing a city..." />
+        <datalist id="suggestions"></datalist>
+        <button onclick="handleSearch()">Check Eclipse</button>
+        <p id="visibility-result"></p>
 
 
       <p>The next solar eclipse visible is a <strong>partial eclipse</strong>.</p>

@@ -25,7 +25,7 @@ async function handleSearch() {
 // 3. Check eclipse visibility using USNO API
 async function checkEclipseVisibility(lat, lon) {
   const date = "2026-08-12";
-  const url = `/api/proxy-usno?date=${date}&lat=${lat}&lon=${lon}`;
+  const url = `/api/proxy-usno?date=${date}&lat=${lat}&lon=${lon}&height=0`;
 
   try {
     const response = await fetch(url);
@@ -74,3 +74,31 @@ function updateCountdown() {
 
 setInterval(updateCountdown, 1000);
 updateCountdown();
+
+//search button
+document.getElementById("locationInput").addEventListener("input", async (e) => {
+  const query = e.target.value.trim();
+  if (query.length < 3) return;
+
+  try {
+    const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&extratags=1&limit=5&q=${encodeURIComponent(query)}`);
+    const results = await response.json();
+
+    // filtering for cities/towns/villages
+    const cityResults = results.filter(place => {
+      const type = place.type;
+      return type === "city" || type === "town" || type === "village";
+    });
+
+    const dataList = document.getElementById("suggestions");
+    dataList.innerHTML = "";
+
+    cityResults.forEach(place => {
+      const option = document.createElement("option");
+      option.value = place.display_name;
+      dataList.appendChild(option);
+    });
+  } catch (error) {
+    console.error("Error fetching suggestions:", error);
+  }
+});
