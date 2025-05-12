@@ -92,7 +92,13 @@ function updateCountdown() {
   if (years > 0) parts.push(`${years}yrs`);
   parts.push(`${days}days`, `${hours}hrs`, `${minutes}min`, `${seconds}sec`);
 
-  document.getElementById("countdown").textContent = parts.join(' ');
+  document.getElementById("countdown").innerHTML = `
+  ${years > 0 ? `<div class="count-segment"><div>${years}</div><span>YEARS</span></div>` : ""}
+  <div class="count-segment"><div>${days}</div><span>DAYS</span></div>
+  <div class="count-segment"><div>${hours}</div><span>HRS</span></div>
+  <div class="count-segment"><div>${minutes}</div><span>MIN</span></div>
+  <div class="count-segment"><div>${seconds}</div><span>SEC</span></div>
+`;
 }
 
 setInterval(updateCountdown, 1000);
