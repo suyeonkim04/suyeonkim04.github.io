@@ -31,13 +31,29 @@ async function checkEclipseVisibility(lat, lon) {
     const response = await fetch(url);
     const data = await response.json();
 
-    console.log("Eclipse API Response:", data); // ✅ Moved here, where `data` exists
+    console.log("Eclipse API Response:", data);
 
-    if (data?.properties?.description && data.properties.description !== "No Eclipse") {
-      const percent = (data.properties.obscuration * 100).toFixed(1);
-      const type = data.properties.description;
-      document.getElementById("visibility-result").textContent =
-        `✅ You will see a ${type} on ${date}! Obscuration: ${percent}%`;
+    const description = data?.properties?.description;
+    const duration = data?.properties?.duration;
+
+    if (description && description !== "No Eclipse") {
+      // Determine eclipse type based on description
+      let type = "";
+
+      if (description.includes("Total")) {
+        type = "Total Solar Eclipse";
+      } else if (description.includes("Annular")) {
+        type = "Annular Solar Eclipse";
+      } else if (description.includes("Hybrid")) {
+        type = "Hybrid Solar Eclipse";
+      } else if (description.includes("Partial")) {
+        type = "Partial Solar Eclipse";
+      } else {
+        type = "Unclassified Eclipse";
+      }
+
+      const resultText = `✅ You will see a ${type} on ${date}. Duration: ${duration}`;
+      document.getElementById("visibility-result").textContent = resultText;
     } else {
       document.getElementById("visibility-result").textContent =
         `🚫 The eclipse is not visible at your location on ${date}.`;
@@ -47,6 +63,7 @@ async function checkEclipseVisibility(lat, lon) {
     document.getElementById("visibility-result").textContent = "⚠️ Error fetching eclipse data.";
   }
 }
+
 
 // 4. Countdown timer
 function updateCountdown() {
