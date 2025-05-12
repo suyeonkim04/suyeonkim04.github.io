@@ -11,6 +11,8 @@ async function handleSearch() {
   const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(city)}`);
   const results = await response.json();
 
+  console.log("Eclipse API Response:", data);
+
   if (results.length === 0) {
     document.getElementById("visibility-result").textContent = "❌ Location not found.";
     return;
