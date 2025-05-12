@@ -1,7 +1,5 @@
 
 
-/* Navigation */
-
 .icon-x {
     position: fixed;
     top: 20px;
@@ -17,7 +15,7 @@
     display: block;
   }
 
-/* Word & Definition Box Containers */
+
 
 * {
     box-sizing: border-box;
@@ -40,7 +38,7 @@
     margin-bottom: 20px;
 }
 
-/* Webpage Text */
+
 
 body {
     font-family: meno-text, serif;
@@ -78,7 +76,7 @@ li {
     text-align: left;
   }
 
-/* Additional Elements */
+
 
 .really {
     opacity: 0.1;
@@ -99,13 +97,13 @@ li {
     100% { width: 0; }  
   }
   
-  /* Blinking cursor animation */
+
   @keyframes blink-caret {
     0%, 100% { border-color: transparent; }
     50% { border-color: #000; }
   }
 
-/* Fixed Footer Navigation */
+
 
 footer {
     position: fixed;
@@ -141,7 +139,7 @@ footer {
     display: block;
   }
 
- /* Container for the floating gradients */
+
 .gradients {
     position: fixed;
     top: 0;
@@ -152,7 +150,7 @@ footer {
     pointer-events: none;
   }
   
-  /* Base style for each gradient circle */
+  
   .gradient {
     position: absolute;
     background: radial-gradient(circle, rgba(255,151,151,1) 0%, rgba(255,151,151,0) 100%);
@@ -160,14 +158,14 @@ footer {
     filter: blur(50px);
   }
   
-  /* Free movement for gradient1 */
+ 
   .gradient1 {
     width: 400px;
     height: 400px;
     animation: freeMove1 20s infinite alternate ease-in-out;
   }
   
-  /* Keyframes for free movement of gradient1 */
+
   @keyframes freeMove1 {
     0% {
       top: 5%;
@@ -191,7 +189,7 @@ footer {
     }
   }
   
-  /* Free movement for gradient2 */
+  
   .gradient2 {
     width: 300px;
     height: 300px;
@@ -199,7 +197,7 @@ footer {
     background: radial-gradient(circle, #59AF64 0%, rgba(89,175,100,0) 100%);
   }
   
-  /* Keyframes for free movement of gradient2 */
+
   @keyframes freeMove2 {
     0% {
       top: 80%;
