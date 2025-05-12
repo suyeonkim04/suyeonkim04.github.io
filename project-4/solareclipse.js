@@ -11,8 +11,6 @@ async function handleSearch() {
   const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(city)}`);
   const results = await response.json();
 
-  console.log("Eclipse API Response:", data);
-
   if (results.length === 0) {
     document.getElementById("visibility-result").textContent = "❌ Location not found.";
     return;
@@ -24,7 +22,7 @@ async function handleSearch() {
   checkEclipseVisibility(lat, lon); // Call the function defined below
 }
 
-// 3. Check eclipse visibility using USNO API (add this!)
+// 3. Check eclipse visibility using USNO API
 async function checkEclipseVisibility(lat, lon) {
   const date = "2026-08-12";
   const url = `/api/proxy-usno?date=${date}&lat=${lat}&lon=${lon}`;
@@ -33,7 +31,9 @@ async function checkEclipseVisibility(lat, lon) {
     const response = await fetch(url);
     const data = await response.json();
 
-    if (data?.properties?.obscuration > 0) {
+    console.log("Eclipse API Response:", data); // ✅ Moved here, where `data` exists
+
+    if (data?.properties?.description && data.properties.description !== "No Eclipse") {
       const percent = (data.properties.obscuration * 100).toFixed(1);
       const type = data.properties.description;
       document.getElementById("visibility-result").textContent =
@@ -43,7 +43,7 @@ async function checkEclipseVisibility(lat, lon) {
         `🚫 The eclipse is not visible at your location on ${date}.`;
     }
   } catch (err) {
-    console.error(err);
+    console.error("Error fetching eclipse data:", err);
     document.getElementById("visibility-result").textContent = "⚠️ Error fetching eclipse data.";
   }
 }
