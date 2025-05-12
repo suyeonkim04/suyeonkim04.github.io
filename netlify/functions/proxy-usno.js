@@ -1,11 +1,15 @@
 export async function handler(event, context) {
-    const { lat, lon, date } = event.queryStringParameters;
+    const { lat, lon, date, height } = event.queryStringParameters;
   
-    const url = `https://aa.usno.navy.mil/api/eclipses/solar/date?date=${date}&coords=${lat},${lon}`;
+    // Ensure height is a safe integer
+    const safeHeight = parseInt(height, 10) || 0;
+  
+    const url = `https://aa.usno.navy.mil/api/eclipses/solar/date?date=${date}&coords=${lat},${lon}&height=${safeHeight}`;
   
     try {
       const res = await fetch(url);
       const data = await res.json();
+  
       return {
         statusCode: 200,
         body: JSON.stringify(data),
@@ -20,3 +24,4 @@ export async function handler(event, context) {
       };
     }
   }
+  
