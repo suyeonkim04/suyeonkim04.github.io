@@ -48,22 +48,22 @@ async function checkEclipseVisibility(lat, lon) {
       let type = "";
 
       if (description.includes("Total")) {
-        type = "Total Solar Eclipse";
+        type = "🌑 Total Solar Eclipse";
       } else if (description.includes("Annular")) {
-        type = "Annular Solar Eclipse";
+        type = "🌔 Annular Solar Eclipse";
       } else if (description.includes("Hybrid")) {
-        type = "Hybrid Solar Eclipse";
+        type = "🌓 Hybrid Solar Eclipse";
       } else if (description.includes("Partial")) {
-        type = "Partial Solar Eclipse";
+        type = " 🌒 Partial Solar Eclipse";
       } else {
         type = "Unclassified Eclipse";
       }
 
-      const resultText = `✅ You will see a ${type} on ${formattedDate}. Duration: ${duration}`;
+      const resultText = `You will see a ${type} on ${formattedDate}. Duration: ${duration}`;
       document.getElementById("visibility-result").textContent = resultText;
     } else {
       document.getElementById("visibility-result").textContent =
-        `🚫 The eclipse is not visible at your location on ${formattedDate}.`;
+        `The eclipse is not visible at your location on ${formattedDate}.`;
     }
   } catch (err) {
     console.error("Error fetching eclipse data:", err);

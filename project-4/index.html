@@ -15,12 +15,15 @@
 
   <div class="search-wrapper">
     <div class="search-container">
-      <input id="locationInput" list="suggestions" placeholder="🔍 Location..." />
+      <div class="input-row">
+        <input id="locationInput" list="suggestions" placeholder="🔍 Location..." />
+        <button id="searchButton" onclick="handleSearch()">Search</button>
+      </div>
       <datalist id="suggestions"></datalist>
-      <button onclick="handleSearch()">Check Eclipse</button>
       <p id="visibility-result"></p>
     </div>
   </div>
+  
 
 
   <div class="ui-wrapper">
