@@ -82,7 +82,7 @@ body {
   
   .countdown {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-end;
     gap: 0.2rem;
     flex-wrap: nowrap;
@@ -142,16 +142,22 @@ body {
     align-items: center;
     gap: 0.5rem;
   }
-  
+
   #locationInput::placeholder {
     color: rgba(255, 255, 255, 0.6);
   }
   
   #visibility-result {
-    font-size: 0.8rem;
-    margin: 0;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    max-width: 80%;
+    text-align: center;
     color: white;
-    max-width: 200px;
+    opacity: 0.85;
+    z-index: 3;
   }
 
   #searchButton {
