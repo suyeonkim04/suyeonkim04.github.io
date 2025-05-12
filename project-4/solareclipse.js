@@ -104,7 +104,7 @@ document.getElementById("locationInput").addEventListener("input", async (e) => 
   if (query.length < 3) return;
 
   try {
-    const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&extratags=1&limit=5&q=${encodeURIComponent(query)}`);
+    const response = await fetch(`/api/proxy-nominatim?q=${encodeURIComponent(query)}`);
     const results = await response.json();
 
     // filtering for cities/towns/villages
