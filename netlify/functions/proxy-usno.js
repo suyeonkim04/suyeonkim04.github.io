@@ -1,7 +1,6 @@
 export async function handler(event, context) {
     const { lat, lon, date, height } = event.queryStringParameters;
   
-    // Ensure height is a safe integer
     const safeHeight = parseInt(height, 10) || 0;
   
     const url = `https://aa.usno.navy.mil/api/eclipses/solar/date?date=${date}&coords=${lat},${lon}&height=${safeHeight}`;

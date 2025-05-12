@@ -1,12 +1,12 @@
-// 1. Define eclipse date & countdown
+
 const eclipseDate = new Date("2026-08-12T18:00:00Z");
 
-// 2. Handle search input and fetch coordinates from Nominatim
+//Nominatum API
 async function handleSearch() {
   const city = document.getElementById("locationInput").value.trim();
   if (!city) return;
 
-  console.log("Searching for:", city); // optional debug log
+  console.log("Searching for:", city);
 
   const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(city)}`);
   const results = await response.json();
@@ -19,10 +19,10 @@ async function handleSearch() {
   const lat = results[0].lat;
   const lon = results[0].lon;
 
-  checkEclipseVisibility(lat, lon); // Call the function defined below
+  checkEclipseVisibility(lat, lon);
 }
 
-// 3. Check eclipse visibility using USNO API
+// visibility check
 async function checkEclipseVisibility(lat, lon) {
   const date = "2026-08-12";
   const url = `/api/proxy-usno?date=${date}&lat=${lat}&lon=${lon}&height=0`;
@@ -44,7 +44,6 @@ async function checkEclipseVisibility(lat, lon) {
       });
 
     if (description && description !== "No Eclipse") {
-      // Determine eclipse type based on description
       let type = "";
 
       if (description.includes("Total")) {
@@ -71,7 +70,7 @@ async function checkEclipseVisibility(lat, lon) {
   }
 }
 
-// 4. Countdown timer
+// countdown
 function updateCountdown() {
   const now = new Date();
   const timeLeft = eclipseDate - now;
@@ -131,7 +130,6 @@ document.getElementById("locationInput").addEventListener("input", async (e) => 
     const response = await fetch(`/api/proxy-nominatim?q=${encodeURIComponent(query)}`);
     const results = await response.json();
 
-    // filtering for cities/towns/villages
     const cityResults = results.filter(place => {
       const type = place.type;
       return type === "city" || type === "town" || type === "village";
