@@ -25,7 +25,7 @@ async function handleSearch() {
 // 3. Check eclipse visibility using USNO API (add this!)
 async function checkEclipseVisibility(lat, lon) {
   const date = "2026-08-12";
-  const url = `https://aa.usno.navy.mil/api/eclipses/solar/date?date=${date}&coords=${lat},${lon}`;
+  const url = `/api/proxy-usno?date=${date}&lat=${lat}&lon=${lon}`;
 
   try {
     const response = await fetch(url);
