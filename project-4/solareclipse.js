@@ -63,11 +63,11 @@ async function checkEclipseVisibility(lat, lon) {
       document.getElementById("visibility-result").textContent = resultText;
     } else {
       document.getElementById("visibility-result").textContent =
-        `🚫 The eclipse is not visible at your location on ${date}.`;
+        `🚫 The eclipse is not visible at your location on ${formattedDate}.`;
     }
   } catch (err) {
     console.error("Error fetching eclipse data:", err);
-    document.getElementById("visibility-result").textContent = "⚠️ Error fetching eclipse data. Please try agaub";
+    document.getElementById("visibility-result").textContent = "⚠️ Error fetching eclipse data. Please try again.";
   }
 }
 
