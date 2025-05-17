@@ -1,9 +1,17 @@
-body {
+@font-face {
+    font-family: 'SF UI Display';
+    src: url('fonts/sf-ui-display-medium-58646be638f96-webfont.woff') format('woff')
+  }
+
+  body {
     margin: 0;
     padding: 0;
-    font-family: "Courier New", monospace;
-    background: url('images/class-site-background.png') repeat;
-    background-size: auto;
+    font-family: "SF UI Display", sans-serif;
+    background-image: url('images/class-site-background.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
     height: 100vh;
     overflow: hidden;
     display: flex;
@@ -21,17 +29,11 @@ body {
     padding-inline: 40px;
   }
   
-  .left-content, .right-projects {
+ .right-projects {
     z-index: 10;
     color: whitesmoke;
   }
   
-  .left-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
   
   .right-projects {
     flex: 1;
