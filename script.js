@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
       { src: 'images/class-site-notebook.png', width: 175 },
       { src: 'images/class-site-pencil.png', width: 80 },
   
-      // 🔗 NEW hover-linkable images:
       {
         src: 'images/class-site-book.png',
         hoverSrc: 'images/class-site-book-hover.png',
@@ -43,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
       img.style.width = `${data.width}px`;
       img.style.position = 'absolute';
   
-      // Randomized starting position
       const maxX = window.innerWidth - data.width;
       const maxY = window.innerHeight - data.width;
       const randX = Math.floor(Math.random() * maxX);
@@ -51,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
       img.style.left = `${randX}px`;
       img.style.top = `${randY}px`;
   
-      // 🔄 Hover effect
       if (data.hoverSrc) {
         img.addEventListener('mouseenter', () => {
           img.src = data.hoverSrc;
@@ -61,14 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
   
-      // 🔗 Link behavior
       if (data.link) {
         img.addEventListener('click', () => {
           window.open(data.link, '_blank');
         });
       }
   
-      // 🖱️ Drag behavior
       let isDragging = false;
   
       img.addEventListener('mousedown', (e) => {
