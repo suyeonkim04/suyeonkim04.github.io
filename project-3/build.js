@@ -6,8 +6,8 @@ let selectedPetal = "petal1";
 let selectedPistil = "pistil1";
 let selectedStem = "stem1";
 let selectedLeaves = "leaves1";
+let selectedMood = "sunshine";
 
-// petals
 const petals = {
     petal1: [
       [null, null, null, "#FFD700", null, null, null],
@@ -47,7 +47,6 @@ const petals = {
     ]
   };
 
-//pistils
 const pistils = {
   pistil1: [
     [null, null, "#FFA500", null, null],
@@ -71,7 +70,6 @@ const pistils = {
   ]
 };
 
-//stems
 const stems = {
   stem1: [
     ["#228B22"],
@@ -103,7 +101,6 @@ const stems = {
   ]
 };
 
-//stem leaves
 const leaves = {
   leaves1: [
     ["#228B22", null, "#228B22", null, "#228B22"],
@@ -126,13 +123,11 @@ const leaves = {
   ]
 };
 
-// draw pixel on canvas
 function drawPixel(ctx, x, y, color, size) {
   ctx.fillStyle = color;
   ctx.fillRect(x * size, y * size, size, size);
 }
 
-// pixel grid to canvas
 function drawFromGrid(ctx, grid, offsetX, offsetY, pixelSize = PIXEL_SIZE) {
   for (let y = 0; y < grid.length; y++) {
     for (let x = 0; x < grid[y].length; x++) {
@@ -144,7 +139,6 @@ function drawFromGrid(ctx, grid, offsetX, offsetY, pixelSize = PIXEL_SIZE) {
   }
 }
 
-//MAIN CANVAS
 function drawFlower() {
   mainCtx.clearRect(0, 0, mainCanvas.width, mainCanvas.height);
 
@@ -155,15 +149,12 @@ function drawFlower() {
 }
 
 //PETALS
-//selection display
 document.querySelectorAll("#petalOptions canvas").forEach(canvas => {
   const type = canvas.dataset.type;
   const ctx = canvas.getContext("2d");
 
-//preview on selection display
   drawFromGrid(ctx, petals[type], 0, 0, 10);
 
-//selection interaction
   canvas.addEventListener("click", () => {
     selectedPetal = type;
     document.querySelectorAll("#petalOptions canvas").forEach(c => c.classList.remove("selected"));
@@ -226,6 +217,16 @@ document.querySelectorAll("#leavesOptions canvas").forEach(canvas => {
 });
 document.querySelector(`[data-type="${selectedLeaves}"]`).classList.add("selected");
 
+//MOODS
+document.querySelectorAll("#moodOptions button").forEach(button => {
+  button.addEventListener("click", () => {
+    selectedMood = button.dataset.mood;
+    document.querySelectorAll("#moodOptions button").forEach(b => b.classList.remove("selected"));
+    button.classList.add("selected");
+  });
+});
+
+
 //button
 document.getElementById("plantButton").addEventListener("click", () => {
   const flower = {
@@ -233,6 +234,7 @@ document.getElementById("plantButton").addEventListener("click", () => {
     pistil: selectedPistil,
     stem: selectedStem,
     leaves: selectedLeaves,
+    mood: selectedMood,
     timestamp: Date.now()
   };
 

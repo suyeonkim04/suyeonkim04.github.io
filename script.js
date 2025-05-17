@@ -9,12 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { src: 'images/class-site-notebook.png', width: 175 },
       { src: 'images/class-site-pencil.png', width: 80 },
   
-      {
-        src: 'images/class-site-book.png',
-        hoverSrc: 'images/class-site-book-hover.png',
-        width: 300,
-        link: 'project-1/index.html'
-      },
+    
       {
         src: 'images/class-site-poster.png',
         hoverSrc: 'images/class-site-poster-hover.png',
@@ -27,6 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
         width: 300,
         link: 'project-3/build.html'
       },
+      
+      {
+        src: 'images/class-site-book.png',
+        hoverSrc: 'images/class-site-book-hover.png',
+        width: 300,
+        link: 'project-1/index.html'
+      },
+      
       {
         src: 'images/class-site-clock.png',
         hoverSrc: 'images/class-site-clock-hover.png',

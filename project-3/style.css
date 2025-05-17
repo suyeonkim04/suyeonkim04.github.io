@@ -52,13 +52,83 @@ body {
     background-color: #fff;
   }
   
-  #gardenCanvas {
-    border: 2px dashed #6b8e23;
+  #moodOptions button.selected {
+    border: 2px solid #4d7c0f;
     background-color: #eaffea;
-    display: block;
-    margin: 20px auto;
-    image-rendering: pixelated;
-      width: 100%;
-      height: 100%;
-
   }
+
+  #gardenWrapper {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    aspect-ratio: 4 / 3;
+    background-repeat: repeat-x;
+    background-size: auto 100%; 
+    border: 2px dotted #6b8e23;
+  }
+  
+  #gardenCanvas {
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+    background-color: transparent;
+  }
+
+button {
+  font-family: "DM Mono", monospace;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 10px 16px;
+  margin: 4px;
+  background-color: #eaffea;
+  border: 2px solid #4d7c0f;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+button:hover {
+  background-color: #d2f8d2;
+  transform: scale(1.03);
+}
+button:active {
+  transform: scale(0.98);
+}
+
+#moodOptions button.selected {
+  background-color: #c8efc8;
+  border-color: #276c00;
+}
+
+#plantButton {
+  background-color: #4d7c0f;
+  color: white;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+#plantButton:hover {
+  background-color: #376207;
+}
+
+.back-button {
+  display: inline-block;
+  font-family: "DM Mono", monospace;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 8px 14px;
+  background-color: #eaffea;
+  border: 2px solid #4d7c0f;
+  border-radius: 4px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.back-button:hover {
+  background-color: #d2f8d2;
+  transform: scale(1.03);
+}
+
+.back-button:active {
+  transform: scale(0.97);
+}
